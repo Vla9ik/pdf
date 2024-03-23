@@ -18754,18 +18754,49 @@
         }();
         var html2canvas = __webpack_require__(354);
         document.querySelector(".sertificate__download").addEventListener("click", (function() {
-            const originalWidthPixels = 1e3;
-            const targetWidthMm = 210;
-            const scaleFactor = targetWidthMm / (originalWidthPixels / 3.78);
-            html2canvas(document.querySelector(".sertificate__body")).then((canvas => {
+            html2canvas(document.querySelector(".sertificate__body"), {
+                scale: 1,
+                width: 1e3
+            }).then((canvas => {
                 const imgData = canvas.toDataURL("image/png");
+                const scaleFactor = 210 / (1e3 / 3.78);
+                const pdfWidth = 210;
+                const pdfHeight = canvas.height * scaleFactor / 3.78;
                 const pdf = new E({
-                    orientation: "portrait"
+                    orientation: pdfHeight > pdfWidth ? "p" : "l",
+                    unit: "mm",
+                    format: [ pdfWidth, pdfHeight ]
                 });
-                const scaledHeight = canvas.height * scaleFactor / 3.78;
-                pdf.addImage(imgData, "PNG", 0, 0, targetWidthMm, scaledHeight);
+                pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
                 pdf.save("certificate.pdf");
             }));
+        }));
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then((() => {
+                console.log("URL успешно скопирован в буфер обмена");
+            })).catch((err => {
+                console.error("Не удалось скопировать URL в буфер обмена:", err);
+            })); else {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand("copy");
+                    console.log("URL успешно скопирован в буфер обмена");
+                } catch (err) {
+                    console.error("Не удалось скопировать URL:", err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", (function() {
+            const copyButton = document.querySelector(".sertificate__copy");
+            if (copyButton) copyButton.addEventListener("click", (function() {
+                const currentUrl = window.location.href;
+                copyToClipboard(currentUrl);
+            })); else console.log("Кнопка для копирования не найдена");
         }));
         window["FLS"] = true;
         isWebp();

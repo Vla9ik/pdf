@@ -217,10 +217,14 @@ h6 {
           column-gap: 1.5rem;
 }
 
+.sertificate__wrapper {
+  overflow-x: auto;
+}
+
 .sertificate__body {
   margin: 0 auto;
-  max-width: 62.5rem;
-  width: 100%;
+  min-width: 62.5rem;
+  max-width: 63rem;
   background: url("../img/bg.jpg") 0 0/100% no-repeat;
   padding: 0.625rem;
 }
