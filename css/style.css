@@ -1,169 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,regular,500,700&display=swap);
 
-@charset "UTF-8";
-
-* {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
-}
-
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-*::before,
-*::after {
-  display: inline-block;
-}
-
-html,
-body {
-  height: 100%;
-  min-width: 320px;
-}
-
-body {
-  color: #000;
-  line-height: 1;
-  font-family: "";
-  font-size: 0.875rem;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-input,
-button,
-textarea {
-  font-family: "";
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  background-color: transparent;
-}
-
-input,
-textarea {
-  width: 100%;
-}
-
-button,
-select,
-option {
-  cursor: pointer;
-}
-
-a {
-  display: inline-block;
-  color: inherit;
-  text-decoration: none;
-}
-
-ul li {
-  list-style: none;
-}
-
-img {
-  vertical-align: top;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: inherit;
-  font-size: inherit;
-}
-
-.lock body {
-  overflow: hidden;
-  -ms-touch-action: none;
-      touch-action: none;
-  -ms-scroll-chaining: none;
-      overscroll-behavior: none;
-}
-
-.wrapper {
-  min-height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  overflow: hidden;
-}
-
-@supports (overflow: clip) {
-  .wrapper {
-    overflow: clip;
-  }
-}
-
-.wrapper > main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-}
-
-.wrapper > * {
-  min-width: 0;
-}
-
-/*
-(i) Стилі будуть застосовуватись до
-всіх класів, що містять *__container
-Наприклад header__container, main__container і т.п.
-Сніппет (HTML): cnt
-*/
-
-[class*=__container] {
-  max-width: 76.875rem;
-  margin: 0 auto;
-  padding: 0 0.9375rem;
-}
-
-.ibg {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.ibg--top {
-  -o-object-position: top;
-     object-position: top;
-}
-
-.ibg--bottom {
-  -o-object-position: bottom;
-     object-position: bottom;
-}
-
-.ibg--left {
-  -o-object-position: left;
-     object-position: left;
-}
-
-.ibg--right {
-  -o-object-position: right;
-     object-position: right;
-}
-
-.ibg--contain {
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
 .sertificate__main-title {
   color: #212121;
   font-family: Ubuntu;
@@ -174,7 +10,7 @@ h6 {
 }
 
 .sertificate__copy {
-  padding: 16px 32px;
+  padding: 10px 28px;
   border-radius: 4px;
   background: #68c5c0;
   color: #fff;
@@ -190,8 +26,7 @@ h6 {
 
 .sertificate__download {
   display: inline-block;
-  max-width: 100%;
-  padding: 16px 32px;
+  padding: 10px 28px;
   border-radius: 4px;
   background: #389b96;
   color: #fff;
@@ -210,23 +45,25 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  row-gap: 0.9375rem;
   -webkit-column-gap: 1.5rem;
-     -moz-column-gap: 1.5rem;
-          column-gap: 1.5rem;
-}
-
-.sertificate__wrapper {
-  overflow-x: auto;
+  -moz-column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 
 .sertificate__body {
+  position: relative;
   margin: 0 auto;
   min-width: 62.5rem;
   max-width: 63rem;
-  background: url("../img/bg.jpg") 0 0/100% no-repeat;
+  width: 100%;
   padding: 0.625rem;
+  -webkit-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 .sertificate__header {
@@ -235,11 +72,11 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .sertificate__header:not(:last-child) {
@@ -349,11 +186,11 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .sertificate__form {
@@ -445,8 +282,8 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .sertificate__stamp-author {
@@ -462,14 +299,14 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-column-gap: 2.5rem;
-     -moz-column-gap: 2.5rem;
-          column-gap: 2.5rem;
+  -moz-column-gap: 2.5rem;
+  column-gap: 2.5rem;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .sertificate__footer {
@@ -482,6 +319,133 @@ h6 {
   /* 142.857% */
 }
 
+.sertificate__links {
+  margin-top: 3.125rem;
+}
+
+.sertificate__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 1rem;
+  -moz-column-gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 0.625rem;
+}
+
+.sertificate__item:not(:last-child) {
+  margin-bottom: 2.25rem;
+}
+
+.sertificate__item span {
+  color: #000;
+  font-family: Ubuntu;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.44;
+  /* 144.444% */
+}
+
+.sertificate__link {
+  display: block;
+  /* или inline-block, в зависимости от того, как ты хочешь управлять расположением */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  color: #68c5c0;
+  font-family: Ubuntu;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  /* 117.647% */
+  text-decoration-line: underline;
+}
+
+.sertificate__all {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.sertificate__all a {
+  max-width: 100%;
+  padding: 0.625rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid #9168c4;
+  background: #fff;
+  color: #9168c4;
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.58;
+  /* 157.143% */
+  letter-spacing: 1.12px;
+  text-transform: uppercase;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+}
+
+.sertificate__violations {
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  white-space: nowrap;
+  -webkit-transform: rotate(-40.011deg);
+  -ms-transform: rotate(-40.011deg);
+  transform: rotate(-40.011deg);
+  color: rgba(235, 87, 87, 0.7);
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1;
+  /* 41.27% */
+}
+
+.window-save {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 20;
+  background: #68c5c0;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 4px;
+  -webkit-box-shadow:
+    0px 0px 50px rgba(0, 0, 0, 0.2),
+    0px 50px 50px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0px 0px 50px rgba(0, 0, 0, 0.2),
+    0px 50px 50px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1.3s;
+  transition: all 1.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.window-save.active {
+  opacity: 1;
+}
+
+@media (min-width: 29.99875em) {
+  .sertificate__copy {
+    max-width: 100%;
+  }
+
+  .sertificate__download {
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 120em) {
   .sertificate__main-title:not(:last-child) {
     margin-bottom: 2.625rem;
@@ -489,6 +453,10 @@ h6 {
 
   .sertificate__btns:not(:last-child) {
     margin-bottom: 3rem;
+  }
+
+  .sertificate__all {
+    margin-top: 6.6875rem;
   }
 }
 
@@ -500,30 +468,75 @@ h6 {
   .sertificate__btns:not(:last-child) {
     margin-bottom: 1.5625rem;
   }
+
+  .sertificate__all {
+    margin-top: 1.875rem;
+  }
+}
+
+@media (max-width: 62.5em) {
+  .sertificate__wrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 61.99875em) {
+  .sertificate__item {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 29.99875em) {
+  .sertificate__copy {
+    width: 100%;
+  }
+
+  .sertificate__download {
+    width: 100%;
+  }
 }
 
 @media (min-width: 48em) and (max-width: 120em) {
-@supports (margin-bottom: clamp( 1.25rem , 0.3333333333rem  +  1.9097222222vw , 2.625rem )) {
+  @supports (margin-bottom: clamp(1.25rem, 0.3333333333rem + 1.9097222222vw, 2.625rem)) {
     .sertificate__main-title:not(:last-child) {
-      margin-bottom: clamp( 1.25rem , 0.3333333333rem  +  1.9097222222vw , 2.625rem );
+      margin-bottom: clamp(1.25rem, 0.3333333333rem + 1.9097222222vw, 2.625rem);
     }
-}
+  }
 
-@supports not (margin-bottom: clamp( 1.25rem , 0.3333333333rem  +  1.9097222222vw , 2.625rem )) {
+  @supports not (margin-bottom: clamp(1.25rem, 0.3333333333rem + 1.9097222222vw, 2.625rem)) {
     .sertificate__main-title:not(:last-child) {
       margin-bottom: calc(1.25rem + 1.375 * (100vw - 48rem) / 72);
     }
-}
+  }
 
-@supports (margin-bottom: clamp( 1.5625rem , 0.6041666667rem  +  1.9965277778vw , 3rem )) {
+  @supports (margin-bottom: clamp(1.5625rem, 0.6041666667rem + 1.9965277778vw, 3rem)) {
     .sertificate__btns:not(:last-child) {
-      margin-bottom: clamp( 1.5625rem , 0.6041666667rem  +  1.9965277778vw , 3rem );
+      margin-bottom: clamp(1.5625rem, 0.6041666667rem + 1.9965277778vw, 3rem);
     }
-}
+  }
 
-@supports not (margin-bottom: clamp( 1.5625rem , 0.6041666667rem  +  1.9965277778vw , 3rem )) {
+  @supports not (margin-bottom: clamp(1.5625rem, 0.6041666667rem + 1.9965277778vw, 3rem)) {
     .sertificate__btns:not(:last-child) {
       margin-bottom: calc(1.5625rem + 1.4375 * (100vw - 48rem) / 72);
     }
+  }
+
+  @supports (margin-top: clamp(1.875rem, -1.3333333333rem + 6.6840277778vw, 6.6875rem)) {
+    .sertificate__all {
+      margin-top: clamp(1.875rem, -1.3333333333rem + 6.6840277778vw, 6.6875rem);
+    }
+  }
+
+  @supports not (margin-top: clamp(1.875rem, -1.3333333333rem + 6.6840277778vw, 6.6875rem)) {
+    .sertificate__all {
+      margin-top: calc(1.875rem + 4.8125 * (100vw - 48rem) / 72);
+    }
+  }
 }
+
+@media (any-hover: hover) {
+  .sertificate__all a:hover {
+    background: rgba(216, 203, 239, 0.2);
+  }
 }

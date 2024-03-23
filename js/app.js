@@ -18772,11 +18772,7 @@
             }));
         }));
         function copyToClipboard(text) {
-            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then((() => {
-                console.log("URL успешно скопирован в буфер обмена");
-            })).catch((err => {
-                console.error("Не удалось скопировать URL в буфер обмена:", err);
-            })); else {
+            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text); else {
                 const textArea = document.createElement("textarea");
                 textArea.value = text;
                 document.body.appendChild(textArea);
@@ -18784,20 +18780,24 @@
                 textArea.select();
                 try {
                     document.execCommand("copy");
-                    console.log("URL успешно скопирован в буфер обмена");
                 } catch (err) {
-                    console.error("Не удалось скопировать URL:", err);
+                    console.error("Ошибка копирования:", err);
                 }
                 document.body.removeChild(textArea);
             }
         }
-        document.addEventListener("DOMContentLoaded", (function() {
-            const copyButton = document.querySelector(".sertificate__copy");
-            if (copyButton) copyButton.addEventListener("click", (function() {
-                const currentUrl = window.location.href;
-                copyToClipboard(currentUrl);
-            })); else console.log("Кнопка для копирования не найдена");
-        }));
+        const copyButton = document.querySelector(".sertificate__copy");
+        if (copyButton) copyButton.addEventListener("click", (function() {
+            const currentUrl = window.location.href;
+            copyToClipboard(currentUrl);
+            const saveWindow = document.querySelector(".window-save");
+            if (saveWindow) {
+                saveWindow.classList.add("active");
+                setTimeout((() => {
+                    saveWindow.classList.remove("active");
+                }), 2e3);
+            }
+        })); else console.error("Кнопка для копирования не найдена");
         window["FLS"] = true;
         isWebp();
     })();
